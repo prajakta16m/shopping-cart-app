@@ -1,5 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 
 @Injectable({providedIn: 'root'})
 export class ConfigService {
@@ -8,7 +9,7 @@ export class ConfigService {
   }
 
   getProducts = () => {
-    this.http.get<any>('https://dummyjson.com/products?limit=10').subscribe(response => {
+    return this.http.get<any>('https://dummyjson.com/products?limit=10').subscribe(response => {
         // process the configuration.
         console.log(response);
       });

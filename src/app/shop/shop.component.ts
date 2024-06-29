@@ -8,15 +8,15 @@ import { ConfigService } from '../../services/config.service';
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss'
 })
-export class ShopComponent implements OnInit {
+export class ShopComponent {
 
   constructor(
     public configService: ConfigService
   ){
 
   }
-  ngOnInit(): void {
-    this.configService.getProducts();
-  }
+
+  getProducts$ = this.configService.getProducts;
+
 
 }
