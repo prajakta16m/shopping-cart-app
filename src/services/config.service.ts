@@ -9,9 +9,8 @@ export class ConfigService {
   }
 
   getProducts = () => {
-    return this.http.get<any>('https://dummyjson.com/products?limit=10').subscribe(response => {
-        // process the configuration.
-        console.log(response);
-      });
+    return this.http.get<any>('https://dummyjson.com/products?limit=50');
     }
+
+    
 }
