@@ -1,1 +1,14 @@
-<p>cart works!</p>
+<div class="cart-container">
+
+    <ng-container *ngFor="let product of cartList;">
+        <div class="cart-item-container">
+            <img [src]="product.thumbnail" />
+            <div class="cart-description">
+                <span class="item-title">{{product.title}}</span>
+                <button class="remove-button" (click)="removeItem(product)">Remove from Cart</button>
+            </div>
+            
+        </div>
+        
+    </ng-container>
+</div>

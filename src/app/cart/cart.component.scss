@@ -1,0 +1,37 @@
+.cart-container {
+
+    .cart-item-container {
+
+        width: 100%;
+        display: inline-block;
+        height: 12em;
+
+        img{
+            scale: 0.5;
+            border: 1px solid gray;
+            border-radius: 1em;
+            float: left;
+            position: relative;
+            top: -4em;
+        }
+        .cart-description {
+            float: left;
+            width: 50em;
+            height: 10em;
+            padding: 1em;
+        }
+        .item-title{
+            float: left;
+        }
+        .remove-button{
+            width: 10em;
+            border-radius: 0.5em;
+            height: 2em;
+            cursor: pointer;
+            float: left;
+            bottom: -7em;
+            position: relative;
+            left: -8em;
+        }
+    }
+}

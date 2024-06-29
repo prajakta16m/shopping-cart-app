@@ -4,7 +4,7 @@
         <div class="product-item">
             <img [src]="product.thumbnail" *ngIf="product.thumbnail" />
             <span class="title">{{product.title}}</span>
-            <button class="add-button">Add to Cart</button>
+            <button class="add-button" (click)="addToCart(product)">Add to Cart</button>
         </div>
     </ng-container>
 </div>
