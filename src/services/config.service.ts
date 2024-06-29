@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Product, ProductList } from "../data/product";
 
 @Injectable({providedIn: 'root'})
 export class ConfigService {
@@ -9,7 +9,7 @@ export class ConfigService {
   }
 
   getProducts = () => {
-    return this.http.get<any>('https://dummyjson.com/products?limit=50');
+    return this.http.get<ProductList>('https://dummyjson.com/products?limit=50');
     }
 
     

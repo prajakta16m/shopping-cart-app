@@ -1,0 +1,36 @@
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-auto-rows: max-content;
+    padding: 10px;
+}
+.product-item{
+    background-color: lightgray;
+    margin: 10px;
+    padding: 5px;
+
+    img{
+        scale: 0.5;
+        vertical-align: top;
+        width: 100%;
+        top: -2em;
+        position: relative;
+    }
+    .title {
+        display: block;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        top: -4em;
+    }
+    .add-button{
+        display: block;
+        width: 60%;
+        margin: 0 auto;
+        bottom: 0.5em;
+        position: relative;
+        border-radius: 0.5em;
+        height: 2em;
+        cursor: pointer;
+    }
+}

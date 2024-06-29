@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss'
 })
-export class ShopComponent {
+export class ShopComponent implements OnInit {
 
   private loading: boolean = false;
   private products: Observable<any[]> | undefined;
@@ -20,8 +20,12 @@ export class ShopComponent {
   ){
 
   }
-  
   getProducts$ = this.configService.getProducts();
+  ngOnInit(): void {
+    
+  }
+  
+  
 
 
 }

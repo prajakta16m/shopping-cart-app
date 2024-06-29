@@ -1,1 +1,12 @@
-<p>shop works! {{ getProducts$ | async }}</p>
+
+<div class="product-container">
+    <ng-container *ngFor="let product of (getProducts$ | async)?.products;">
+        <div class="product-item">
+            <img [src]="product.thumbnail" *ngIf="product.thumbnail" />
+            <span class="title">{{product.title}}</span>
+            <button class="add-button">Add to Cart</button>
+        </div>
+    </ng-container>
+</div>
+
+
