@@ -19,6 +19,10 @@
         display: inline-block;
         padding: 20px;
         margin: 0 50px;
+        font-size: 1.5em;
+      }
+      li:hover {
+        a{color: brown;}
       }
 
       .align-left {
