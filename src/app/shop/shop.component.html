@@ -7,7 +7,7 @@
             <img [src]="product.thumbnail" *ngIf="product.thumbnail" />
             <div class="title">{{product.title}}</div>
             <div class="price">Price: {{product.price}}</div>
-            <div class="rating">Rating: {{product.rating}}</div>
+            <div class="rating">Rating: {{product.rating}}/5</div>
             <div class="discount-label">Discounted at {{product.discountPercentage}}%</div>
             <button class="add-button" (click)="addToCart(product)">Add to Cart</button>
         </div>
