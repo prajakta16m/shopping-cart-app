@@ -62,6 +62,12 @@
             cursor: pointer;
             
         }
+        .remove-button:hover {
+            background-color: lightskyblue;
+        }
+        .remove-button:active {
+            transform: translateY(0.2em);
+        }
     }
     .checkout-container{
         border: 0.5px solid lightgray;

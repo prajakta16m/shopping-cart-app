@@ -9,7 +9,7 @@
             <div class="cart-description">
                 <div class="item-title">{{item.product.title}}</div>
                 <div class="item-count">Qty: 
-                    <input value="{{item.count}}" (click)="onInputChange(item)" />
+                    <input type="number" min="0" [(ngModel)]="item.count" (change)="onInputChange(item, $event)" />
                 </div>
                 <div class="discount-label">Discounted at {{item.product.discountPercentage}}%</div>
                 <div class="item-title">Price: {{item.price}}</div>
