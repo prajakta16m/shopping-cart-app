@@ -4,5 +4,8 @@ export type ProductList = {
 export type Product = {
     id: number,
     title: string,
-    thumbnail: string
+    thumbnail: string,
+    discountPercentage: number,
+    price: number,
+    rating: number
 };

@@ -1,5 +1,10 @@
 .cart-container {
 
+    .empty-cart{
+        margin: 2em auto;
+        width: 100%;
+        text-align: center;
+    }
     .cart-item-container {
 
         width: 100%;
@@ -22,16 +27,51 @@
         }
         .item-title{
             float: left;
+            clear: both;
+            padding: 0 0 0.5em 0;
+        }
+        .item-count{
+            float: left;
+            clear: both;
+        }
+        .discount-label{
+            float: left;
+            clear: both;
+            color: deeppink;
+            margin: 0.5em 0;
+        }
+        input {
+            display: inline-block;
+            clear: both;
+            width: 2em;
+            text-align: right;
+
+            user-select: all;
+            -moz-user-select: all;
+            -webkit-user-select: all;
         }
         .remove-button{
+
+            float: left;
+            position: relative;
+            clear: both;
+            margin: 1em 0;
             width: 10em;
             border-radius: 0.5em;
             height: 2em;
             cursor: pointer;
-            float: left;
-            bottom: -7em;
-            position: relative;
-            left: -8em;
+            
         }
+    }
+    .checkout-container{
+        border: 0.5px solid lightgray;
+        border-radius: 1em;
+        width: 10em;
+        position: fixed;
+        right: 0;
+        top: 5em;
+        margin-right: 5em;
+        padding: 1em;
+        text-align: center;
     }
 }

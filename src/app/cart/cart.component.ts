@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { Product } from '../../data/product';
 import { CommonModule } from '@angular/common';
+import { CartItem } from '../../data/cartItem';
 
 @Component({
   selector: 'app-cart',
@@ -12,7 +13,9 @@ import { CommonModule } from '@angular/common';
 })
 export class CartComponent implements OnInit {
 
-  cartList: Product[] = [];
+  cartList: CartItem[] = [];
+
+  totalCartPrice = signal(0);
 
   constructor(
     public cartService: CartService
@@ -20,11 +23,26 @@ export class CartComponent implements OnInit {
 
   removeItem(product: Product) {
       this.cartService.removeFromCart(product);
-      this.cartList = this.cartService.cartItems;
+      this.cartList = this.cartService.cartList;
+
+      this.setCartPrice();
+  }
+
+  onInputChange(item: CartItem) {
+   
+  }
+
+  setCartPrice() {
+    this.cartList.forEach(prod => 
+        prod.totalPrice = prod.count * prod.price
+      );
+      let val = this.cartList.map(prod => prod.totalPrice).reduce((a,b) => a+b);
+      this.totalCartPrice.set(Math.round(val * 100) / 100);
   }
 
   ngOnInit(): void {
-    this.cartList = this.cartService.cartItems;
+    this.cartList = this.cartService.cartList;
+    this.setCartPrice();
   }
 
 }

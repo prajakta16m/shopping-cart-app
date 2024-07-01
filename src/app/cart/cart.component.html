@@ -1,13 +1,24 @@
 <div class="cart-container">
 
-    <ng-container *ngFor="let product of cartList;">
+    <div class="empty-cart" *ngIf="cartList.length === 0">
+        Cart is empty.
+    </div>
+    <ng-container *ngFor="let item of cartList;">
         <div class="cart-item-container">
-            <img [src]="product.thumbnail" />
+            <img [src]="item.product.thumbnail" />
             <div class="cart-description">
-                <span class="item-title">{{product.title}}</span>
-                <button class="remove-button" (click)="removeItem(product)">Remove from Cart</button>
+                <div class="item-title">{{item.product.title}}</div>
+                <div class="item-count">Qty: 
+                    <input value="{{item.count}}" (click)="onInputChange(item)" />
+                </div>
+                <div class="discount-label">Discounted at {{item.product.discountPercentage}}%</div>
+                <div class="item-title">Price: {{item.price}}</div>
+                <button class="remove-button" (click)="removeItem(item.product)">Remove from Cart</button>
             </div>
             
+        </div>
+        <div class="checkout-container">
+            <div>Total Price: {{totalCartPrice()}}</div>
         </div>
         
     </ng-container>

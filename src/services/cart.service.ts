@@ -7,20 +7,37 @@ export const cartCount =  signal(0);
 @Injectable({ providedIn: 'root'})
 export class CartService {
 
-    public cartItems: Product[] = [];
+    public cartList: CartItem[] = [];
 
     addToCart = (product: Product) => {
-        this.cartItems.push(product);
-        
+   
+        const index = this.cartList.findIndex((item => item.product.id == product.id));
 
-        cartCount.set(this.cartItems.length);
+        if(index > -1) {
+            this.cartList[index].count = this.cartList[index].count + 1;
+            // update prices
+            this.cartList[index].totalPrice = (this.cartList[index].count * this.cartList[index].price);
+        } else {
+            this.cartList.push({
+                product: product,
+                count: 1,
+                price: product.price,
+                totalPrice: product.price
+            })
+        }
+
+        cartCount.set(this.cartList.length);
     }
 
     removeFromCart = (product: Product) => {
-        this.cartItems = this.cartItems.filter(
-            (prod) => { return prod.id != product.id });
+   
+        const index = this.cartList.findIndex((item => item.product.id == product.id));
 
-        cartCount.set(this.cartItems.length);
+        if(index > -1) {
+            this.cartList.splice(index,1);
+        } 
+
+        cartCount.set(this.cartList.length);
     }
   
 }
