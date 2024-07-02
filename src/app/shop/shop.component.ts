@@ -12,8 +12,7 @@ import { Observable } from 'rxjs';
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss'
 })
-export class ShopComponent implements OnInit {
-  
+export class ShopComponent {
 
   constructor(
     public configService: ConfigService,
@@ -26,12 +25,5 @@ export class ShopComponent implements OnInit {
   addToCart(product: Product) {
     this.cartService.addToCart(product);
   }
-
-  ngOnInit(): void {
-    console.log(this.getProducts$);
-  }
-  
-  
-
 
 }

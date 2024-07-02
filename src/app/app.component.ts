@@ -15,7 +15,7 @@ export class AppComponent {
     public cartService: CartService
   ){
     effect(() => {
-      console.log(`The current count is: ${cartCount()}`);
+      
       this.count = cartCount();
       let x = document.getElementById("cartAnimation");
       if(x && this.count > 0){
