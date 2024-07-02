@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from '../../services/config.service';
-import { Observable, Observer } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { Product } from '../../data/product';
+import { Product, ProductList } from '../../data/product';
 import { CartService } from '../../services/cart.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-shop',
@@ -13,9 +13,7 @@ import { CartService } from '../../services/cart.service';
   styleUrl: './shop.component.scss'
 })
 export class ShopComponent implements OnInit {
-
-  private loading: boolean = false;
-  private products: Observable<any[]> | undefined;
+  
 
   constructor(
     public configService: ConfigService,
@@ -30,7 +28,7 @@ export class ShopComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    console.log(this.getProducts$);
   }
   
   

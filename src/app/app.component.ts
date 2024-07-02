@@ -17,6 +17,13 @@ export class AppComponent {
     effect(() => {
       console.log(`The current count is: ${cartCount()}`);
       this.count = cartCount();
+      let x = document.getElementById("cartAnimation");
+      if(x && this.count > 0){
+        x.style.transform = "rotate(-15deg)";
+        setTimeout(() => {
+          x.style.transform = "rotate(0deg)";
+        },200);
+      }
     });
   }
 

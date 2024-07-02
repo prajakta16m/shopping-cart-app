@@ -2,16 +2,26 @@
 <div class="product-container">
 
 
-    <ng-container *ngFor="let product of (getProducts$ | async)?.products;">
-        <div class="product-item">
-            <img [src]="product.thumbnail" *ngIf="product.thumbnail" />
-            <div class="title">{{product.title}}</div>
-            <div class="price">Price: {{product.price}}</div>
-            <div class="rating">Rating: {{product.rating}}/5</div>
-            <div class="discount-label">Discounted at {{product.discountPercentage}}%</div>
-            <button class="add-button" (click)="addToCart(product)">Add to Cart</button>
+    <ng-container *ngIf=" getProducts$ | async as productList; else loading;">
+      
+        <div *ngFor="let product of productList?.products">
+            <div class="product-item">
+                <img [src]="product.thumbnail" *ngIf="product.thumbnail" />
+                <div class="title">{{product.title}}</div>
+                <div class="price">Price: {{product.price}}</div>
+                <div class="rating">Rating: {{product.rating}}/5</div>
+                <div class="discount-label">Discounted at {{product.discountPercentage}}%</div>
+                <button class="add-button" (click)="addToCart(product)">Add to Cart</button>
+            </div>
         </div>
+
     </ng-container>
+
+    <ng-template #loading>
+        Loading Products...
+    </ng-template>
+
+    
 </div>
 
 
