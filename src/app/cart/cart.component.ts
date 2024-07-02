@@ -44,6 +44,8 @@ export class CartComponent implements OnInit {
       );
       let val = this.cartList.map(prod => prod.totalPrice).reduce((a,b) => a+b);
       this.totalCartPrice.set(Math.round(val * 100) / 100);
+    } else {
+      this.totalCartPrice.set(0);
     }
     
   }
